@@ -3,5 +3,4 @@
 .vscodeignore
 src/**
 tsconfig.json
-dist/**
 *.vsix

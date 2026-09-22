@@ -24,7 +24,35 @@
     "modern",
     "minimalist"
   ],
+  "main": "./dist/extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "contributes": {
+    "commands": [
+      {
+        "command": "bernieTheme.openWarmthSlider",
+        "title": "Bernie: Open Warmth Slider (Draggable UI)",
+        "category": "Bernie Theme"
+      },
+      {
+        "command": "bernieTheme.resetWarmth",
+        "title": "Bernie: Reset Warmth to Default",
+        "category": "Bernie Theme"
+      }
+    ],
+    "configuration": {
+      "title": "Bernie Theme",
+      "properties": {
+        "bernieTheme.lightWarmth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 30,
+          "description": "Warmth level (color temperature) for Bernie Light Theme (0 = Cool Ice, 100 = Sepia Solarized)."
+        }
+      }
+    },
     "themes": [
       {
         "label": "Bernie Dark (Eye Care)",
@@ -54,14 +82,17 @@
     ]
   },
   "scripts": {
-    "build": "tsx src/build.ts",
-    "package": "vsce package --allow-missing-repository --no-dependencies",
+    "compile": "esbuild src/extension.ts --bundle --outfile=dist/extension.cjs --external:vscode --format=cjs --platform=node",
+    "build": "npm run compile && tsx src/build.ts",
+    "package": "npm run compile && vsce package --allow-missing-repository --no-dependencies",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
+    "@types/vscode": "^1.80.0",
     "@vscode/vsce": "^2.24.0",
     "colord": "^2.9.3",
+    "esbuild": "^0.20.1",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }
