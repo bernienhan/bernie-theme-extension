@@ -1,0 +1,48 @@
+{
+  "name": "bernie-theme",
+  "displayName": "Bernie Themes",
+  "description": "A collection of clean, modern, high-contrast dark and custom themes by Bernie.",
+  "version": "0.0.1",
+  "type": "module",
+  "publisher": "bernie",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "color-theme",
+    "bernie",
+    "modern",
+    "minimalist"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Bernie Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bernie-dark.json"
+      },
+      {
+        "label": "Bernie Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bernie-midnight.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsx src/build.ts",
+    "package": "vsce package",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@vscode/vsce": "^2.24.0",
+    "colord": "^2.9.3",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
