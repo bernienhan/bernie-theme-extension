@@ -5,6 +5,11 @@
   "version": "0.0.1",
   "type": "module",
   "publisher": "bernie",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bernie/bernie-theme"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -22,20 +27,35 @@
   "contributes": {
     "themes": [
       {
-        "label": "Bernie Dark",
+        "label": "Bernie Dark (Eye Care)",
         "uiTheme": "vs-dark",
         "path": "./themes/bernie-dark.json"
       },
       {
-        "label": "Bernie Midnight",
+        "label": "Bernie Velvet (Soft Pastel)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bernie-velvet.json"
+      },
+      {
+        "label": "Bernie Rose (Sakura Blossom)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bernie-rose.json"
+      },
+      {
+        "label": "Bernie Midnight (OLED Gold)",
         "uiTheme": "vs-dark",
         "path": "./themes/bernie-midnight.json"
+      },
+      {
+        "label": "Bernie Light (Paper Clean)",
+        "uiTheme": "vs",
+        "path": "./themes/bernie-light.json"
       }
     ]
   },
   "scripts": {
     "build": "tsx src/build.ts",
-    "package": "vsce package",
+    "package": "vsce package --allow-missing-repository --no-dependencies",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {

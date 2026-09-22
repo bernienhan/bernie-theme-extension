@@ -1,101 +1,152 @@
-# 🎨 Bernie Themes (VS Code)
+<div align="center">
 
-Bộ theme hiện đại cho Visual Studio Code được xây dựng trên kiến trúc **Design Token & Theme Engine** bằng TypeScript, hỗ trợ mở rộng không giới hạn các biến thể màu sắc.
+# ✦ Bernie Themes for VS Code ✦
 
----
+**A refined collection of high-contrast, eye-care, and aesthetically crafted themes for Visual Studio Code.**
 
-## 🚀 Hướng dẫn phát triển & Dùng thử (Quick Start)
+[![Version](https://img.shields.io/badge/version-0.0.1-blue.svg?style=flat-square)](package.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![VS Code Engine](https://img.shields.io/badge/vscode-%3E%3D1.80.0-007ACC.svg?style=flat-square&logo=visualstudiocode)](https://code.visualstudio.com/)
+[![Built with TypeScript](https://img.shields.io/badge/Built%20with-TypeScript-3178C6.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-### 1. Cài đặt thư viện
-```bash
-npm install
-```
-
-### 2. Build toàn bộ theme
-```bash
-npm run build
-```
-Lệnh này sẽ:
-* Đọc toàn bộ danh sách theme trong `src/themes.ts`.
-* Tự động sinh file JSON trong thư mục `themes/`.
-* Tự động đồng bộ khai báo `contributes.themes` trong `package.json`.
-
-### 3. Xem trước / Test trực tiếp (F5)
-* Mở project này trong VS Code.
-* Nhấn phím **`F5`** (hoặc vào tab *Run & Debug* -> chọn *Extension Test (F5)*).
-* Một cửa sổ VS Code mới sẽ mở lên. Bạn nhấn `Ctrl + K, Ctrl + T` để chọn các theme:
-  - **Bernie Dark**
-  - **Bernie Midnight**
+[Features](#-key-features) • [Themes Gallery](#-themes-gallery) • [Installation](#-installation) • [Recommended Settings](#-recommended-editor-settings) • [Theme Engine](#-extending--customizing)
 
 ---
 
-## ➕ Cách thêm một Theme Template mới (Chỉ 2 phút)
+</div>
 
-Khi muốn tạo thêm 1 bảng theme mới (ví dụ: `Bernie Light`, `Bernie Forest`, `Bernie Cyberpunk`...):
+## 🌟 Overview
 
-1. **Tạo file bảng màu**:
-   - Copy file `src/palettes/template.ts` thành `src/palettes/bernie-forest.ts`.
-   - Tinh chỉnh các mã màu HEX theo sở thích của bạn.
+**Bernie Themes** is designed from the ground up for developers who demand both **high contrast readability** and **long-session visual comfort**. 
 
-2. **Đăng ký vào Theme Registry (`src/themes.ts`)**:
+Unlike conventional themes that rely on aggressive neon greens and washed-out text, Bernie Themes employs a curated, harmonious color science:
+- **Zero Harsh Greens**: Replaced with soothing **Warm Honey**, **Sand**, and **Auburn** tones to eliminate eye glare.
+- **Rich Semantic Highlighting**: Deeply integrated with modern Language Server Protocols (LSP) for TypeScript, Python, Rust, Go, C++, and more.
+- **Punchy Typography**: Crisp contrast with selective bold styling for methods, variables, keywords, and types.
+
+---
+
+## 🎨 Themes Gallery
+
+| Theme | Description | Ideal For |
+| :--- | :--- | :--- |
+| **Bernie Dark (Eye Care)** | Deep slate/navy background with soothing warm tones and soft coral accents. | Daily all-around coding without eye fatigue. |
+| **Bernie Rose (Sakura Blossom)** | Luxurious dark plum backdrop enriched with soft cherry blossom pinks and rose gold. | Aesthetic, cozy, and vibrant night sessions. |
+| **Bernie Light (Paper Clean)** | Ultra-crisp paper white canvas featuring bold midnight ink typography and high-contrast accents. | Daytime productivity and brightly lit rooms. |
+| **Bernie Velvet (Soft Pastel)** | Smoky graphite surface with relaxing, muted pastel hues (Catppuccin / Rosé Pine inspired). | Late-night deep-focus sessions. |
+| **Bernie Midnight (OLED Gold)** | True AMOLED pure black (`#000000`) paired with champagne gold and sky blue accents. | OLED / Mini-LED displays and battery saving. |
+
+---
+
+## ✨ Key Features
+
+- 👁️ **Eye-Care Color Harmony**: Carefully balanced contrast ratios that comply with readability standards while minimizing blue-light strain.
+- ⚡ **Distinct Syntax Hierarchy**: Every token—from function parameters to object properties—has a purposeful, distinguishable color.
+- 🖋️ **Bold & Crisp Font Accents**: Method declarations, variables, and keywords pop out instantly for rapid code scanning.
+- 🧱 **Scalable Multi-Theme Architecture**: Built upon a modular TypeScript Token Engine, allowing seamless addition of custom color palettes.
+
+---
+
+## 📦 Installation
+
+### Option 1: Install from VSIX (Personal / Offline)
+
+1. Download or package the `.vsix` file:
+   ```bash
+   npm run package
+   ```
+2. In VS Code:
+   - Open the **Extensions** view (`Ctrl + Shift + X` or `Cmd + Shift + X`).
+   - Click the **`...`** (Views and More Actions) menu in the top-right corner.
+   - Select **Install from VSIX...** and choose `bernie-theme-0.0.1.vsix`.
+
+### Option 2: Command Line (CLI)
+
+```bash
+code --install-extension bernie-theme-0.0.1.vsix
+```
+
+---
+
+## 🚀 How to Activate
+
+1. Open the Command Palette via `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS).
+2. Type **`Preferences: Color Theme`** (or use shortcut `Ctrl + K Ctrl + T`).
+3. Select any of the **Bernie** themes from the list:
+   - `Bernie Dark (Eye Care)`
+   - `Bernie Rose (Sakura Blossom)`
+   - `Bernie Light (Paper Clean)`
+   - `Bernie Velvet (Soft Pastel)`
+   - `Bernie Midnight (OLED Gold)`
+
+---
+
+## ⚙️ Recommended Editor Settings
+
+To achieve the best visual experience, add the following to your `settings.json`:
+
+```json
+{
+  // Enable full semantic highlighting support
+  "editor.semanticHighlighting.enabled": true,
+
+  // Smooth cursor animation and line transitions
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+
+  // Bracket pair colorization & guides
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+
+  // Recommended typography
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6
+}
+```
+
+---
+
+## 🛠️ Extending & Customizing
+
+Bernie Themes is powered by an extensible TypeScript build system. You can easily add your own color variant in 3 simple steps:
+
+1. **Create a Palette**:
+   Duplicate `src/palettes/template.ts` to `src/palettes/my-custom-theme.ts` and customize your hex values.
+
+2. **Register the Theme** in `src/themes.ts`:
    ```typescript
-   import { bernieForestPalette } from './palettes/bernie-forest.js';
+   import { myCustomPalette } from './palettes/my-custom-theme.js';
 
    export const themes: ThemeDefinition[] = [
-     // ... các theme cũ
+     // ... existing themes
      {
-       id: 'bernie-forest',
-       label: 'Bernie Forest',
-       uiTheme: 'vs-dark', // hoặc 'vs' nếu là Light theme
-       palette: bernieForestPalette,
+       id: 'my-custom-theme',
+       label: 'Bernie Custom',
+       uiTheme: 'vs-dark', // or 'vs' for light themes
+       palette: myCustomPalette,
      },
    ];
    ```
 
-3. **Chạy Build**:
+3. **Build the Theme**:
    ```bash
    npm run build
    ```
-   *Xong! File `themes/bernie-forest.json` sẽ tự động được sinh ra và tích hợp sẵn sàng.*
+   *The JSON file and `package.json` configurations are generated automatically.*
 
 ---
 
-## 📦 Đóng gói & Cài đặt vào máy cá nhân
+## 📜 License
 
-Để cài đặt dùng vĩnh viễn trên máy chính của bạn:
-
-1. Chạy lệnh đóng gói:
-   ```bash
-   npm run package
-   ```
-   *(Sẽ sinh ra file `bernie-theme-x.x.x.vsix`)*
-
-2. Trong VS Code:
-   - Mở tab **Extensions** (`Ctrl + Shift + X`).
-   - Bấm vào dấu `...` ở góc trên bên phải.
-   - Chọn **Install from VSIX...** và chọn file `.vsix` vừa tạo.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 📂 Cấu trúc thư mục
+<div align="center">
 
-```
-bernie-theme/
-├── .vscode/
-│   └── launch.json            # Cấu hình F5 Extension Debugging
-├── src/
-│   ├── engine/                # Logic tính toán Theme
-│   │   ├── generator.ts       # Sinh JSON chuẩn VS Code
-│   │   ├── syntax.ts          # Bộ quy tắc TextMate Scopes (code highlighting)
-│   │   └── workbench.ts       # Bộ quy tắc UI VS Code (ActivityBar, SideBar, Tabs...)
-│   ├── palettes/              # Nơi chứa các bảng màu
-│   │   ├── bernie-dark.ts     # Theme Slate Dark hiện đại
-│   │   ├── bernie-midnight.ts # Theme AMOLED Pure Black
-│   │   └── template.ts        # File mẫu để tạo theme mới
-│   ├── build.ts               # Script build xuất theme & sync package.json
-│   ├── themes.ts              # Theme Registry (Đăng ký theme tập trung)
-│   └── types.ts               # Interface TypeScript chuẩn
-├── themes/                    # Thư mục chứa JSON output
-├── package.json
-└── tsconfig.json
-```
+Crafted with care by **Bernie**. Enjoy coding! 🚀
+
+</div>

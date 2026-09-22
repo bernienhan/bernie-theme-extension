@@ -1,69 +1,70 @@
 import { ThemePalette } from '../types.js';
 
 /**
- * Bernie Dark Palette
- * Phong cách: Hiện đại, nền slate/navy dịu mắt, độ tương phản cao, màu sắc hài hòa.
+ * Bernie Dark Palette (Eye-Care Edition)
+ * Phong cách: Nền Slate/Navy sâu dịu mắt, hoàn toàn KHÔNG dùng xanh lá chói.
+ * Chuỗi (String) dùng tông Warm Honey/Sand nhẹ nhàng; Keyword dùng Soft Coral/Rose.
  */
 export const bernieDarkPalette: ThemePalette = {
   bg: {
-    base: '#0f141c',          // Nền chính editor
-    surface: '#0b0f15',       // Nền sidebar, title bar, panel
-    surfaceHover: '#17202d',  // Khi hover item trong list/tree
-    surfaceActive: '#1d2737', // Khi click chọn item
-    overlay: '#131b26',       // Nền dropdown, modal popup, hover widget
-    highlight: '#161e2a',     // Nền line đang đặt con trỏ
+    base: '#0d1117',          // Nền chính editor (GitHub Dark / Slate sâu)
+    surface: '#090d12',       // Nền sidebar, title bar, panel
+    surfaceHover: '#161e29',  // Khi hover item
+    surfaceActive: '#1c2636', // Khi chọn item
+    overlay: '#131b26',       // Nền popup, modal, dropdown
+    highlight: '#161f2c',     // Nền line đang đặt con trỏ
   },
 
   fg: {
-    primary: '#e2e8f0',       // Chữ chính (trắng bạc dễ đọc)
-    secondary: '#94a3b8',     // Chữ phụ, mô tả (xám trung tính)
-    muted: '#64748b',         // Chữ mờ, comment, line number
-    inverse: '#0b0f15',       // Chữ trên nền nút bấm sáng
+    primary: '#e6edf3',       // Chữ chính (Trắng bạc thanh thoát, không chói)
+    secondary: '#8b949e',     // Chữ phụ (Xám tro dịu mắt)
+    muted: '#586069',         // Chữ mờ, line number
+    inverse: '#090d12',       // Chữ trên nền nút sáng
   },
 
   border: {
-    subtle: '#1e293b',        // Đường viền ngăn cách giữa các panel
-    focus: '#38bdf8',         // Viền khi focus vào ô input
+    subtle: '#21262d',        // Viền panel tinh tế
+    focus: '#58a6ff',         // Viền focus Ice Blue
   },
 
   accent: {
-    primary: '#38bdf8',       // Accent chính: Cyan Sky Blue
-    secondary: '#818cf8',     // Accent phụ: Indigo
-    selection: '#1e3a5f80',   // Vùng bôi đen văn bản (có alpha)
-    matchHighlight: '#38bdf840', // Highlight từ khóa tìm kiếm
+    primary: '#58a6ff',       // Xanh dương Ice Blue dịu
+    secondary: '#bc8cff',     // Tím Lavender
+    selection: '#1f385c80',   // Bôi đen văn bản dịu mắt
+    matchHighlight: '#58a6ff38', // Highlight từ khóa tìm kiếm
   },
 
   status: {
-    error: '#f43f5e',         // Đỏ tươi Rose
-    warning: '#f59e0b',       // Vàng cam Amber
-    info: '#38bdf8',          // Xanh da trời
-    success: '#10b981',       // Xanh ngọc Emerald
+    error: '#ff7b72',         // Đỏ san hô mềm mại
+    warning: '#f0883e',       // Cam ấm
+    info: '#79c0ff',          // Xanh da trời pastel
+    success: '#56d364',       // Xanh mint nhạt dịu
   },
 
   git: {
-    added: '#10b981',
-    modified: '#38bdf8',
-    deleted: '#f43f5e',
-    untracked: '#a78bfa',
-    ignored: '#475569',
+    added: '#56d364',
+    modified: '#79c0ff',
+    deleted: '#ff7b72',
+    untracked: '#d2a8ff',
+    ignored: '#484f58',
   },
 
   syntax: {
-    keyword: '#f43f5e',       // const, let, if, return, import (Rose)
-    storage: '#ec4899',       // function, class, type (Pink)
-    func: '#38bdf8',          // Tên hàm, method call (Sky Blue)
-    variable: '#f1f5f9',      // Tên biến (Trắng sáng)
-    parameter: '#fb923c',     // Tham số hàm (Orange)
-    property: '#38bdf8',      // Key của object, thuộc tính (Sky Blue nhạt)
-    string: '#a3e635',        // Chuỗi ký tự (Lime Green ấm)
-    number: '#fbbf24',        // Số, boolean, constants (Amber Yellow)
-    type: '#a78bfa',          // Kiểu dữ liệu, Class, Interface (Purple)
-    comment: '#64748b',       // Chú thích (Slate Gray dịu)
-    tag: '#f43f5e',           // Thẻ HTML/JSX (Rose)
-    attribute: '#fb923c',     // Thuộc tính tag HTML/JSX (Orange)
-    operator: '#e2e8f0',      // Dấu toán tử +, -, =
-    punctuation: '#94a3b8',   // Dấu {}, [], (), ;
-    regexp: '#f472b6',        // Regular expressions
-    special: '#c084fc',       // this, self, super (Tím nhạt)
+    keyword: '#ff7b72',       // const, let, if, return, import (Coral Rose dịu mắt)
+    storage: '#ff7b72',       // function, class, type, interface
+    func: '#79c0ff',          // Tên hàm, method call (Soft Sky Blue)
+    variable: '#e6edf3',      // Tên biến (Trắng bạc dịu)
+    parameter: '#ffa657',     // Tham số hàm (Soft Apricot/Peach)
+    property: '#79c0ff',      // Thuộc tính object, struct
+    string: '#eed49f',        // Chuỗi ký tự (Warm Honey/Sand - thay cho xanh lá chói)
+    number: '#f0883e',        // Số, boolean, hằng số (Warm Amber)
+    type: '#d2a8ff',          // Kiểu dữ liệu, Class, Interface (Soft Lilac Lavender)
+    comment: '#6e7681',       // Ghi chú // ... (Cool Gray dịu mắt)
+    tag: '#ff7b72',           // Thẻ HTML/JSX
+    attribute: '#ffa657',     // Thuộc tính HTML/JSX
+    operator: '#e6edf3',      // Dấu toán tử +, -, =
+    punctuation: '#8b949e',   // Dấu ngoặc {}, [], (), ;
+    regexp: '#f47067',        // Regular expressions
+    special: '#bc8cff',       // this, self, super (Tím Lavender)
   },
 };

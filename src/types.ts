@@ -69,6 +69,19 @@ export interface ThemePalette {
     regexp: string;        // regular expressions
     special: string;       // this, super, self
   };
+
+  // --- Font Styles (Optional: bold, italic, bold italic, underline) ---
+  fontStyles?: {
+    keyword?: string;      // e.g. 'bold'
+    storage?: string;      // e.g. 'bold'
+    func?: string;         // e.g. 'bold'
+    variable?: string;     // e.g. 'bold'
+    parameter?: string;
+    property?: string;
+    type?: string;         // e.g. 'bold'
+    comment?: string;      // e.g. 'italic'
+    tag?: string;          // e.g. 'bold'
+  };
 }
 
 export interface ThemeDefinition {

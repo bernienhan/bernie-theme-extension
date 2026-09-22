@@ -1,40 +1,55 @@
 import { ThemePalette } from '../types.js';
 
 export function createSemanticTokenColors(p: ThemePalette): Record<string, string | { foreground?: string; fontStyle?: string; italic?: boolean; bold?: boolean }> {
+  const isBold = (style?: string) => style?.includes('bold') ?? false;
+  const isItalic = (style?: string) => style?.includes('italic') ?? false;
+
+  const tokenSetting = (color: string, style?: string) => {
+    if (!style) return color;
+    return {
+      foreground: color,
+      fontStyle: style,
+      bold: isBold(style),
+      italic: isItalic(style),
+    };
+  };
+
   return {
-    'variable': p.syntax.variable,
-    'variable.readonly': p.syntax.variable,
-    'variable.defaultLibrary': p.syntax.special,
-    'parameter': p.syntax.parameter,
-    'function': p.syntax.func,
-    'function.defaultLibrary': p.syntax.func,
-    'member': p.syntax.func,
-    'method': p.syntax.func,
-    'property': p.syntax.property,
-    'property.readonly': p.syntax.property,
-    'property.defaultLibrary': p.syntax.property,
-    'class': p.syntax.type,
-    'interface': p.syntax.type,
-    'enum': p.syntax.type,
+    'variable': tokenSetting(p.syntax.variable, p.fontStyles?.variable),
+    'variable.readonly': tokenSetting(p.syntax.variable, p.fontStyles?.variable),
+    'variable.defaultLibrary': tokenSetting(p.syntax.special, p.fontStyles?.variable),
+    'parameter': tokenSetting(p.syntax.parameter, p.fontStyles?.parameter),
+    'function': tokenSetting(p.syntax.func, p.fontStyles?.func),
+    'function.defaultLibrary': tokenSetting(p.syntax.func, p.fontStyles?.func),
+    'member': tokenSetting(p.syntax.func, p.fontStyles?.func),
+    'method': tokenSetting(p.syntax.func, p.fontStyles?.func),
+    'property': tokenSetting(p.syntax.property, p.fontStyles?.property),
+    'property.readonly': tokenSetting(p.syntax.property, p.fontStyles?.property),
+    'property.defaultLibrary': tokenSetting(p.syntax.property, p.fontStyles?.property),
+    'class': tokenSetting(p.syntax.type, p.fontStyles?.type),
+    'interface': tokenSetting(p.syntax.type, p.fontStyles?.type),
+    'enum': tokenSetting(p.syntax.type, p.fontStyles?.type),
     'enumMember': p.syntax.number,
-    'type': p.syntax.type,
-    'type.defaultLibrary': p.syntax.type,
-    'typeParameter': p.syntax.type,
-    'keyword': p.syntax.keyword,
-    'comment': { foreground: p.syntax.comment, italic: true },
+    'type': tokenSetting(p.syntax.type, p.fontStyles?.type),
+    'type.defaultLibrary': tokenSetting(p.syntax.type, p.fontStyles?.type),
+    'typeParameter': tokenSetting(p.syntax.type, p.fontStyles?.type),
+    'keyword': tokenSetting(p.syntax.keyword, p.fontStyles?.keyword),
+    'comment': { foreground: p.syntax.comment, fontStyle: p.fontStyles?.comment ?? 'italic', italic: true },
     'string': p.syntax.string,
     'number': p.syntax.number,
     'regexp': p.syntax.regexp,
     'operator': p.syntax.operator,
-    'namespace': p.syntax.type,
+    'namespace': tokenSetting(p.syntax.type, p.fontStyles?.type),
     'macro': p.syntax.special,
     'selfKeyword': { foreground: p.syntax.special, italic: true },
-    'builtinType': p.syntax.type,
-    'magicFunction': p.syntax.func,
+    'builtinType': tokenSetting(p.syntax.type, p.fontStyles?.type),
+    'magicFunction': tokenSetting(p.syntax.func, p.fontStyles?.func),
   };
 }
 
 export function createTokenColors(p: ThemePalette) {
+  const fs = p.fontStyles;
+
   return [
     // Comments & Documentation
     {
@@ -49,7 +64,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.comment,
-        fontStyle: 'italic',
+        fontStyle: fs?.comment ?? 'italic',
       },
     },
 
@@ -75,6 +90,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.keyword,
+        fontStyle: fs?.keyword,
       },
     },
 
@@ -95,6 +111,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.storage,
+        fontStyle: fs?.storage ?? fs?.keyword,
       },
     },
 
@@ -117,6 +134,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.type,
+        fontStyle: fs?.type,
       },
     },
 
@@ -134,6 +152,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.func,
+        fontStyle: fs?.func,
       },
     },
 
@@ -148,6 +167,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.parameter,
+        fontStyle: fs?.parameter,
       },
     },
 
@@ -163,6 +183,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.variable,
+        fontStyle: fs?.variable,
       },
     },
 
@@ -179,6 +200,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.property,
+        fontStyle: fs?.property,
       },
     },
 
@@ -235,6 +257,7 @@ export function createTokenColors(p: ThemePalette) {
       ],
       settings: {
         foreground: p.syntax.tag,
+        fontStyle: fs?.tag,
       },
     },
 
